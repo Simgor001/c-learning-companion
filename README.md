@@ -5,7 +5,7 @@
 
   <h1>自学C大纲</h1>
 
-  <p><strong>从内存到数据库，再到相似查询的 34 章 C 语言自学路线。</strong></p>
+  <p><strong>用 C 语言从内存直觉出发，逐步走到数据库实现和相似查询。</strong></p>
 
   <p>
     <a href="https://simgor001.github.io/c-learning-companion/">在线阅读</a>
@@ -18,7 +18,7 @@
   <p>
     <img src="https://img.shields.io/badge/Hugo-extended-ff4088?style=flat-square&logo=hugo&logoColor=white" alt="Hugo extended" />
     <img src="https://img.shields.io/badge/GitHub%20Pages-deployed-2ea44f?style=flat-square&logo=githubpages&logoColor=white" alt="GitHub Pages deployed" />
-    <img src="https://img.shields.io/badge/34%20chapters-C%20course-2563eb?style=flat-square" alt="34 chapters" />
+    <img src="https://img.shields.io/badge/C%20language-course-2563eb?style=flat-square" alt="C language course" />
     <img src="https://img.shields.io/badge/AIGC-assisted-64748b?style=flat-square" alt="AIGC assisted" />
   </p>
 </div>
