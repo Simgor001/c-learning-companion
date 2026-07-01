@@ -591,7 +591,7 @@ body {
 
 .book-footer .course-footer-nav {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 2rem minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   gap: 0.75rem;
   padding-top: 0.95rem;
@@ -605,7 +605,8 @@ body {
 }
 
 .book-footer .course-footer-prev {
-  justify-content: flex-start;
+  justify-content: flex-end;
+  text-align: right;
 }
 
 .book-footer .course-footer-actions {
@@ -613,12 +614,13 @@ body {
 }
 
 .book-footer .course-footer-next {
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .book-footer .course-footer-nav-link,
 .book-footer .course-edit-link {
   display: inline-flex;
+  flex: 0 1 auto;
   align-items: center;
   max-width: 100%;
   gap: 0.35rem;
@@ -640,14 +642,7 @@ body {
 
 .book-footer .course-edit-link {
   font-weight: 600;
-  width: 2rem;
-  height: 2rem;
-  justify-content: center;
-  padding: 0;
-}
-
-.book-footer .course-edit-link span {
-  display: none;
+  white-space: nowrap;
 }
 
 .book-footer .course-footer-nav-link span {
@@ -655,8 +650,12 @@ body {
   overflow-wrap: anywhere;
 }
 
-.book-footer .course-footer-next-link {
+.book-footer .course-footer-prev-link {
   text-align: right;
+}
+
+.book-footer .course-footer-next-link {
+  text-align: left;
 }
 
 .book-footer .course-footer-nav-link .book-icon,
