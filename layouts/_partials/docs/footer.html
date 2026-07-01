@@ -1,12 +1,43 @@
-{{ if and .File .Site.Params.BookEditLink }}
-  <div class="course-footer-actions">
-    <a class="course-edit-link" href="{{ partial "docs/links/edit" . }}" target="_blank" rel="noopener edit">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
-        <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.18-3.37-1.18a2.65 2.65 0 0 0-1.1-1.45c-.9-.62.07-.6.07-.6a2.1 2.1 0 0 1 1.53 1.03 2.13 2.13 0 0 0 2.91.83 2.14 2.14 0 0 1 .64-1.34c-2.22-.25-4.55-1.11-4.55-4.93a3.86 3.86 0 0 1 1.03-2.68 3.58 3.58 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.48 9.48 0 0 1 5 0c1.9-1.29 2.74-1.02 2.74-1.02.55 1.37.2 2.4.1 2.64a3.85 3.85 0 0 1 1.03 2.68c0 3.83-2.34 4.67-4.56 4.92a2.4 2.4 0 0 1 .68 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" />
-      </svg>
-      <span>在 GitHub 上编辑本页</span>
-    </a>
-  </div>
-{{ end }}
+{{- $editHref := "" -}}
+{{- if and .File .Site.Params.BookEditLink -}}
+  {{- $editHref = partial "docs/links/edit" . -}}
+{{- end -}}
 
-{{ partial "docs/prev-next" . }}
+{{- with (partialCached "docs/menu-section" .Site) -}}
+  {{- $pages := partialCached "docs/menu-section-pages" . -}}
+  {{- $prev := $pages.Next $ -}}
+  {{- $next := $pages.Prev $ -}}
+
+  {{- if or $prev $next $editHref -}}
+  <nav class="course-footer-nav" aria-label="页面导航">
+    <div class="course-footer-slot course-footer-prev">
+      {{- with $prev -}}
+        <a href="{{ .RelPermalink }}" class="course-footer-nav-link course-footer-prev-link">
+          <img src="{{ partial "docs/icon" "backward" }}" class="book-icon" alt="{{ partial "docs/text/i18n" "Backward" }}" />
+          <span>{{ partial "docs/title" . }}</span>
+        </a>
+      {{- end -}}
+    </div>
+
+    <div class="course-footer-slot course-footer-actions">
+      {{- with $editHref -}}
+        <a class="course-edit-link" href="{{ . }}" target="_blank" rel="noopener edit" aria-label="在 GitHub 上编辑本页" title="在 GitHub 上编辑本页">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+            <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.18-3.37-1.18a2.65 2.65 0 0 0-1.1-1.45c-.9-.62.07-.6.07-.6a2.1 2.1 0 0 1 1.53 1.03 2.13 2.13 0 0 0 2.91.83 2.14 2.14 0 0 1 .64-1.34c-2.22-.25-4.55-1.11-4.55-4.93a3.86 3.86 0 0 1 1.03-2.68 3.58 3.58 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.48 9.48 0 0 1 5 0c1.9-1.29 2.74-1.02 2.74-1.02.55 1.37.2 2.4.1 2.64a3.85 3.85 0 0 1 1.03 2.68c0 3.83-2.34 4.67-4.56 4.92a2.4 2.4 0 0 1 .68 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" />
+          </svg>
+          <span>在 GitHub 上编辑本页</span>
+        </a>
+      {{- end -}}
+    </div>
+
+    <div class="course-footer-slot course-footer-next">
+      {{- with $next -}}
+        <a href="{{ .RelPermalink }}" class="course-footer-nav-link course-footer-next-link">
+          <span>{{ partial "docs/title" . }}</span>
+          <img src="{{ partial "docs/icon" "forward" }}" class="book-icon" alt="{{ partial "docs/text/i18n" "Forward" }}" />
+        </a>
+      {{- end -}}
+    </div>
+  </nav>
+  {{- end -}}
+{{- end -}}

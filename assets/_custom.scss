@@ -589,17 +589,37 @@ body {
   font-size: 0.95rem;
 }
 
-.book-footer .course-footer-actions {
-  display: block;
-  margin: 0 0 1rem;
+.book-footer .course-footer-nav {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9rem;
   padding-top: 0.95rem;
   border-top: 1px solid var(--course-border-soft);
 }
 
+.book-footer .course-footer-slot {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+}
+
+.book-footer .course-footer-prev {
+  justify-content: flex-start;
+}
+
+.book-footer .course-footer-actions {
+  justify-content: center;
+}
+
+.book-footer .course-footer-next {
+  justify-content: flex-end;
+}
+
+.book-footer .course-footer-nav-link,
 .book-footer .course-edit-link {
   display: inline-flex;
   align-items: center;
-  width: auto;
   max-width: 100%;
   gap: 0.35rem;
   min-height: 0;
@@ -610,17 +630,35 @@ body {
   border: 0;
   border-radius: 4px;
   font-size: 0.92rem;
-  font-weight: 600;
   line-height: 1.35;
   text-decoration: none;
 }
 
+.book-footer .course-footer-nav-link {
+  font-weight: 500;
+}
+
+.book-footer .course-edit-link {
+  font-weight: 600;
+}
+
+.book-footer .course-footer-nav-link span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.book-footer .course-footer-next-link {
+  text-align: right;
+}
+
+.book-footer .course-footer-nav-link .book-icon,
 .book-footer .course-edit-link svg {
   width: 0.95rem;
   height: 0.95rem;
   flex: 0 0 auto;
 }
 
+.book-footer .course-footer-nav-link:hover,
 .book-footer .course-edit-link:hover {
   color: var(--course-link);
   background: transparent;
@@ -629,6 +667,7 @@ body {
   text-underline-offset: 0.18em;
 }
 
+.book-footer .course-footer-nav-link:focus-visible,
 .book-footer .course-edit-link:focus-visible {
   outline: 2px solid var(--color-link);
   outline-offset: 2px;
@@ -1057,6 +1096,21 @@ body {
 
   .book-footer {
     padding: 0 1.15rem 2.75rem;
+  }
+
+  .book-footer .course-footer-nav {
+    gap: 0.45rem;
+  }
+
+  .book-footer .course-edit-link {
+    width: 2rem;
+    height: 2rem;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .book-footer .course-edit-link span {
+    display: none;
   }
 
   .course-article-header {
