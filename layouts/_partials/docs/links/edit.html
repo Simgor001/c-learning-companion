@@ -1,0 +1,8 @@
+{{- $path := .Page.File.Path -}}
+{{- $path = replace $path "\\" "/" -}}
+{{- $path = strings.TrimPrefix "/" $path -}}
+{{- return (partial "docs/text/template" (dict "Template" .Site.Params.BookEditLink "Context" (dict
+  "Site" .Site
+  "Page" .Page
+  "Path" $path
+)) | urls.JoinPath) -}}

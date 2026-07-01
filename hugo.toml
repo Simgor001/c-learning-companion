@@ -17,6 +17,8 @@ uglyURLs = true
   BookBrandSubtitle = '从内存到数据库'
   BookFavicon = 'course-logo.svg'
   BookDateFormat = '2006-01-02'
+  BookRepo = 'https://github.com/Simgor001/c-learning-companion'
+  BookEditLink = '{{ .Site.Params.BookRepo }}/edit/main/content/{{ .Path }}'
 
 [markup]
   [markup.goldmark]

@@ -1,7 +1,10 @@
 <nav>
 {{ partial "docs/brand" . }}
-<div class="course-sidebar-actions">
+<div class="course-sidebar-tools">
+  {{ partial "docs/github-link" . }}
   {{ partial "docs/theme-toggle" . }}
+</div>
+<div class="course-sidebar-search">
   {{ partial "docs/search" . }}
 </div>
 {{ if hugo.IsMultilingual }}
