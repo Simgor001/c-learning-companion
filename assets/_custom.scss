@@ -605,8 +605,8 @@ body {
 }
 
 .book-footer .course-footer-prev {
-  justify-content: flex-end;
-  text-align: right;
+  justify-content: flex-start;
+  text-align: left;
 }
 
 .book-footer .course-footer-actions {
@@ -614,7 +614,7 @@ body {
 }
 
 .book-footer .course-footer-next {
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 .book-footer .course-footer-nav-link,
@@ -651,11 +651,11 @@ body {
 }
 
 .book-footer .course-footer-prev-link {
-  text-align: right;
+  text-align: left;
 }
 
 .book-footer .course-footer-next-link {
-  text-align: left;
+  text-align: right;
 }
 
 .book-footer .course-footer-nav-link .book-icon,
