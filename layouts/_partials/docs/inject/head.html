@@ -1,0 +1,23 @@
+<script>
+  (function () {
+    try {
+      var theme = window.localStorage.getItem("course-theme");
+      if (theme === "light" || theme === "dark") {
+        document.documentElement.dataset.theme = theme;
+      } else {
+        document.documentElement.removeAttribute("data-theme");
+      }
+    } catch (error) {
+      document.documentElement.removeAttribute("data-theme");
+    }
+  })();
+</script>
+{{- with resources.Get "theme-toggle.js" }}
+  {{- $themeToggle := . | resources.Minify | resources.Fingerprint }}
+  <script defer src="{{ $themeToggle.RelPermalink }}" integrity="{{ $themeToggle.Data.Integrity }}"></script>
+{{- end }}
+<link rel="stylesheet" href="{{ "katex/katex.min.css" | relURL }}" />
+<script defer src="{{ "katex/katex.min.js" | relURL }}"></script>
+{{- with resources.Get "katex.json" | minify }}
+  <script defer src="{{ "katex/auto-render.min.js" | relURL }}" onload="renderMathInElement(document.body, {{ .Content | safeJS }});"></script>
+{{- end }}

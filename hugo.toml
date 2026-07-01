@@ -1,0 +1,36 @@
+baseURL = '/'
+title = '自学C大纲：从内存到数据库'
+theme = 'hugo-book'
+defaultContentLanguage = 'zh'
+enableGitInfo = false
+uglyURLs = true
+
+[params]
+  BookTheme = 'auto'
+  BookSection = '/'
+  BookToC = true
+  BookSearch = true
+  BookComments = false
+  BookServiceWorker = false
+  BookLogo = 'course-logo.svg'
+  BookBrandTitle = '自学C大纲'
+  BookBrandSubtitle = '从内存到数据库'
+  BookFavicon = 'course-logo.svg'
+  BookDateFormat = '2006-01-02'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['$', '$'], ['\(', '\)']]
+  [markup.highlight]
+    style = 'base16-snazzy'
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'

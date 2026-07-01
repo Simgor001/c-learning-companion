@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <article class="markdown book-article course-article">
+    {{ if and .IsPage .Title }}
+      <header class="course-article-header">
+        <h1>{{ .Title }}</h1>
+      </header>
+    {{ end }}
+    {{- .Content -}}
+  </article>
+{{ end }}

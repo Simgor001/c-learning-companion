@@ -1,0 +1,52 @@
+{{ $current := . }}
+{{ $chapters := .Site.GetPage "section" "chapters" }}
+{{ $projects := .Site.GetPage "section" "projects" }}
+
+{{ $groups := slice
+  (dict "Title" "编程基础" "Icon" "course-foundation" "Start" 1 "End" 10)
+  (dict "Title" "数据结构" "Icon" "course-structures" "Start" 11 "End" 19)
+  (dict "Title" "数据库" "Icon" "course-database" "Start" 20 "End" 29)
+  (dict "Title" "向量学习" "Icon" "course-vector" "Start" 30 "End" 34)
+}}
+
+<ul class="course-menu-groups">
+  {{ range $groups }}
+    <li class="book-section-flat course-menu-group">
+      <span class="course-menu-group-title">
+        <img src="{{ partial "docs/icon" .Icon }}" class="book-icon" alt="" />
+        <span>{{ .Title }}</span>
+      </span>
+      <ul>
+        {{ $start := .Start }}
+        {{ $end := .End }}
+        {{ range where (where $chapters.Pages "Params.bookHidden" "ne" true) "IsPage" true }}
+          {{ if and (ge .Weight $start) (le .Weight $end) }}
+            <li>
+              <a href="{{ .RelPermalink }}" class="{{ if eq $current . }}active{{ end }}">
+                {{ partial "docs/title" . }}
+              </a>
+            </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </li>
+  {{ end }}
+
+  {{ with $projects }}
+    <li class="book-section-flat course-menu-group">
+      <span class="course-menu-group-title">
+        <img src="{{ partial "docs/icon" "course-projects" }}" class="book-icon" alt="" />
+        <span>{{ partial "docs/title" . }}</span>
+      </span>
+      <ul>
+        {{ range where (where .Pages "Params.bookHidden" "ne" true) "IsPage" true }}
+          <li>
+            <a href="{{ .RelPermalink }}" class="{{ if eq $current . }}active{{ end }}">
+              {{ partial "docs/title" . }}
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </li>
+  {{ end }}
+</ul>

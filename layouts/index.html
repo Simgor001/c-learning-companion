@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <article class="markdown book-article course-article course-home">
+    <header class="course-home-hero">
+      <h1>{{ or .Params.heroTitle .Title }}</h1>
+      {{ with .Description }}
+        <p>{{ . }}</p>
+      {{ end }}
+      <nav class="course-home-actions" aria-label="首页入口">
+        {{ with .Site.GetPage "chapters/ch01" }}
+          <a href="{{ .RelPermalink }}">开始第 1 章</a>
+        {{ end }}
+        {{ with .Site.GetPage "projects/project-1" }}
+          <a href="{{ .RelPermalink }}">查看阶段项目</a>
+        {{ end }}
+      </nav>
+    </header>
+    {{- .Content -}}
+  </article>
+{{ end }}
