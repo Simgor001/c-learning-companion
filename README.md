@@ -1,6 +1,27 @@
-# 自学C大纲
+<div align="center">
+  <p>
+    <img src="./static/course-logo.svg" width="84" alt="自学C大纲" />
+  </p>
 
-34 章 C 语言自学大纲。先看数据在内存里怎么放，再写数据结构和小数据库，最后用向量做相似查询。
+  <h1>自学C大纲</h1>
+
+  <p><strong>从内存到数据库，再到相似查询的 34 章 C 语言自学路线。</strong></p>
+
+  <p>
+    <a href="https://simgor001.github.io/c-learning-companion/">在线阅读</a>
+    ·
+    <a href="./content/chapters">课程章节</a>
+    ·
+    <a href="./content/projects">阶段项目</a>
+  </p>
+
+  <p>
+    <img src="https://img.shields.io/badge/Hugo-extended-ff4088?style=flat-square&logo=hugo&logoColor=white" alt="Hugo extended" />
+    <img src="https://img.shields.io/badge/GitHub%20Pages-deployed-2ea44f?style=flat-square&logo=githubpages&logoColor=white" alt="GitHub Pages deployed" />
+    <img src="https://img.shields.io/badge/34%20chapters-C%20course-2563eb?style=flat-square" alt="34 chapters" />
+    <img src="https://img.shields.io/badge/AIGC-assisted-64748b?style=flat-square" alt="AIGC assisted" />
+  </p>
+</div>
 
 ## 怎么用
 
