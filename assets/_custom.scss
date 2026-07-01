@@ -587,42 +587,47 @@ body {
   font-size: 0.95rem;
 }
 
-.course-footer-actions {
-  display: flex;
-  margin: 0 0 1.35rem;
-  padding-top: 1.25rem;
+.book-footer .course-footer-actions {
+  display: block;
+  margin: 0 0 1rem;
+  padding-top: 0.95rem;
   border-top: 1px solid var(--course-border-soft);
 }
 
-.course-edit-link {
+.book-footer .course-edit-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  min-height: 2.4rem;
-  padding: 0.45rem 0.72rem;
-  color: var(--course-menu-title);
-  background: var(--course-block-bg);
-  border: 1px solid var(--course-border);
-  border-radius: 6px;
-  font-weight: 700;
-  line-height: 1.2;
+  width: auto;
+  max-width: 100%;
+  gap: 0.35rem;
+  min-height: 0;
+  margin: 0;
+  padding: 0.15rem 0;
+  color: var(--course-link);
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.35;
   text-decoration: none;
 }
 
-.course-edit-link svg {
-  width: 1.08rem;
-  height: 1.08rem;
+.book-footer .course-edit-link svg {
+  width: 0.95rem;
+  height: 0.95rem;
   flex: 0 0 auto;
 }
 
-.course-edit-link:hover {
-  color: var(--course-menu-title);
-  background: var(--course-menu-hover-bg);
+.book-footer .course-edit-link:hover {
+  color: var(--course-link);
+  background: transparent;
   opacity: 1;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
-.course-edit-link:focus-visible {
+.book-footer .course-edit-link:focus-visible {
   outline: 2px solid var(--color-link);
   outline-offset: 2px;
 }
